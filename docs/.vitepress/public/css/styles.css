@@ -1,0 +1,389 @@
+:root {
+    --primary-color: rgba(237, 110, 81, 1);
+    --text-color: #444;
+    --background-highlight: rgba(237, 110, 81, 0.1);
+    --hover-link-color: OrangeRed;
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Consolas', 'Monaco', monospace;  
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('../fonts/Cascadia.ttf');
+
+body {
+    color: var(--text-color);
+    font-family: var(--font-primary);
+    font-weight: 400;
+    line-height: 2em;
+    padding: 1em;
+    font-size: 1em;
+    margin: auto;
+
+}
+
+.image-container {
+    width: 100%;
+    max-width: 95px;
+    max-height: 95px;
+    min-width: 95px;
+    justify-content: center;
+    border: 1px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 15px;
+    overflow: hidden;
+    margin-bottom: 5px;
+
+}
+
+.logos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.logos img {
+    height: 80px;
+}
+
+.logo {
+    background-color: var(--primary-color);
+    padding: 10px;
+    padding-bottom: 0px;
+    margin-right: 10px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.h-center {
+    justify-content: center;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+@media (min-width: 1081px) {
+    .sideMenu {
+        position: fixed;
+        padding: 10px;
+        height: 100%;
+        width: 25vw;
+        overflow: scroll;
+        top: 0;
+        left: 0;
+        font-weight: bold;
+        background: var(--background-highlight);
+        color: var(--primary-color);
+    }
+
+    .mainContent {
+        position: relative;
+        left: 26vw;
+        width: 70vw;
+    }
+}
+
+@media (min-width: 1601px) {
+    .sideMenu {
+        width: 20vw;
+    }
+
+    .mainContent {
+        left: 22vw;
+    }
+}
+
+@media (max-width: 720px) {
+    body {
+        max-width: 48rem;
+    }
+
+    .sideMenu, .mainContent {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    .logos{
+        justify-content: center;
+    }
+
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.title {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-top: 0.3em;
+    border-top: 0.1em double var(--primary-color);
+    border-bottom: 0.1em double var(--primary-color);
+    font-size: 2.5rem;
+}
+
+h1 {
+    margin-top: 1em;
+    font-size: 2.5rem;
+}
+
+h2 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.2em;
+    border-bottom: 0.1em double var(--primary-color);
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-size: 1.9rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+h4 {
+    font-size: 1.6rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+h5 {
+    font-size: 1.3rem;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+div.sideMenu > ul:first-of-type,
+div.sideMenu > ul:first-of-type ul {
+    list-style-type: none;
+    padding: 5px;
+}
+
+ul, ol {
+    padding-left: 30px;
+}
+
+li {
+    margin: 0.2em 0;
+    padding: 0;
+}
+
+pre {
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: auto;
+    padding: 5px;
+    font-family: var(--font-primary);
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+pre code {
+    font-size: 0.9em;
+    font-family: var(--font-secondary);
+    background-color: inherit;
+    color: #d4d4d4;
+    border: 1px solid var(--primary-color);
+    border: none;
+    padding: 0 0.2em;
+}
+
+code {
+    font-size: 0.9em;
+    font-family: var(--font-secondary);
+    background-color: #f8f8f8;
+    border: 1px solid var(--primary-color);
+    border-radius: 3px;
+    padding: 0 0.2em;
+    color: var(--text-color);
+}
+
+blockquote {
+    background-color: var(--background-highlight);
+    border-left: 5px double var(--primary-color);
+    color: var(--primary-color);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+blockquote em,
+blockquote strong {
+    color: var(--primary-color);
+}
+
+table {
+    background-color: white;
+}
+
+em {
+    color: var(--primary-color);
+}
+
+strong {
+    font-weight: bold;
+}
+
+mark {
+    background-color: var(--primary-color);
+}
+
+b {
+    font-weight: bold;
+}
+
+div.sideMenu a {
+    color: var(--primary-color);
+}
+
+a, a:visited {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+a:hover, a:focus, a:active {
+    color: var(--hover-link-color);
+}
+
+img, canvas, iframe, video, svg, select, textarea {
+    max-width: 99%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+table {
+    margin: 0 auto 2em auto ;
+    border: 1px solid #444;
+    box-shadow: 2px 2px;
+}
+
+
+thead {
+    color: var(--primary-color);
+}
+
+.border{    
+    border: 1px solid var(--primary-color);
+}
+
+tr,
+img,
+blockquote,
+.container {
+    page-break-inside: avoid;
+}
+
+@media print {
+    .watermark {
+        width: 100%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.15;
+        z-index: -1;
+    }
+
+    pre {
+        background-color: #ffffff;
+    }
+    
+    pre code {
+        color: #1e1e1e;
+    }
+    
+    code {
+        background-color: #1e1e1e;
+    }
+}
+
+.fade-in {
+  animation: fadeIn 1.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.logo-anim {
+  transition: transform 0.5s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.5s;
+  box-shadow: 0 2px 16px 0 rgba(237,110,81,0.10);
+}
+.logo-anim:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 8px 32px 0 rgba(237,110,81,0.25);
+  filter: brightness(1.1);
+}
+
+.author-card {
+  background: var(--background-highlight);
+  border-radius: 12px;
+  padding: 1em 2em;
+  margin-top: 1em;
+  box-shadow: 0 2px 8px 0 rgba(237,110,81,0.10);
+  font-size: 1.1em;
+  font-family: var(--font-primary);
+  color: var(--primary-color);
+  animation: fadeIn 1.5s 0.2s backwards;
+}
+
+/* Mejora de la animación de entrada para el índice */
+#Índex, #Índex + ul, #Índex + ol {
+  animation: fadeIn 1.2s 0.2s backwards;
+}
