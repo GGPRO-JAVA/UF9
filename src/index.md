@@ -23,21 +23,6 @@ Aquest curs està dissenyat per introduir-vos als fonaments essencials de la pro
 - 📋 [**Objectius del Curs**](./objectius.md)  
   Exploració dels objectius i competències a assolir
 
-- 📚 [**1. Introducció**](./introduccio.md)  
-  Fonaments bàsics de la programació
-
-- 🔄 [**2. Algoritme**](./algoritme.md)  
-  Conceptes i estructures algorítmiques
-
-- ⚡ [**3. Cicle de Vida**](./cicle-vida.md)  
-  Fases del desenvolupament de programari
-
-- 📊 [**4. Representació d'Algoritmes**](./algoritmes.md)  
-  Tècniques de representació i documentació
-
-- 🔧 [**5. Elements d'un Programa**](./elements.md)  
-  Components essencials en programació
-
 :::
 
 ## Metodologia {.animate-title}

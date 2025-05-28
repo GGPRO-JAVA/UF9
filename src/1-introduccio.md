@@ -35,7 +35,7 @@ public class Exemple1_excepcions{
 ```
 Sent l'eixida:
 
-![Eixida exemple 1](uf9/Eixida_exemple1.jpg)
+![Eixida exemple 1](/uf9/Eixida_exemple1.jpg)
 
 El que ha ocorregut és que la màquina virtual Java (el programa que executa codi Java) ha detectat una condició d'error, la divisió per 0, i ha creat un objecte de la classe <i>java.lang.ArithmeticException</i>. Com el mètode on s'ha produït l'excepció no és capaç de tractar-la, la màquina virtual Java finalitza el programa en la línia on realitza la divisió i mostra un missatge d'error amb la informació sobre l'excepció que s'ha produït.
 
@@ -58,7 +58,7 @@ public class Exemple2_excepcions{
 
 Sent l'eixida:
 
-![Eixida exemple 2](uf9/Eixida_exemple2.jpg)
+![Eixida exemple 2](/uf9/Eixida_exemple2.jpg)
 
 Pel fet que la cadena no té el format adequat ("56s" no representa un número vàlid), el mètode Integer.parseInt(…) no pot convertir-la a un valor de tipus int i llança l'excepció <i>NumberFormatException</i>. La màquina virtual Java finalitza el programa en la línia on s'usa el parseInt() i mostra per pantalla la informació sobre l'excepció que s'ha produït.
 
@@ -82,6 +82,6 @@ public class Exemple3_excepcions{
 
 Sent l'eixida:
 
-![Eixida exemple 3](uf9/Eixida_exemple3.jpg)
+![Eixida exemple 3](/uf9/Eixida_exemple3.jpg)
 
 En intentar accedir a una posició que sobrepassa la grandària del vector es produeix una excepció de tipus <i>ArrayIndexOutOfBoundsException</i>. La màquina virtual de java finalitza el programa en la línia 18 i mostra el missatge d'error sobre l'excepció que s'ha produït.

@@ -5,10 +5,10 @@ import { withMermaid } from "vitepress-plugin-mermaid";
 // https://vitepress.dev/reference/site-config
 export default withMermaid({
   lang: 'ca-ES',
-  title: 'UF9 - Excepcions',
+  title: 'UF9',
   description: 'Descripció',
-  base: '/',
-  outDir: './dist',
+  base: '/UF9/',
+  outDir: '../docs',
   markdown: {
     config(md) {
       md.use(tabsMarkdownPlugin)
@@ -53,8 +53,8 @@ export default withMermaid({
         { text: "4. Jerarquia i tipus d'excepcions", link: '/4-tipus' },
         { text: "5. Definir excepcions pròpies", link: '/5-propies' },
         { text: "Exemples", link: '/6-exemples' },
-        { text: '<img src="/img/logo-gva.png" class="logo-anim" style="vertical-align:middle; height:150px; margin-top:100px;">', link: '' },
-        { text: '<img src="/img/logo-centro.png" class="logo-anim" style="vertical-align:middle; height:150px;">', link: '' }
+        { text: '<img src="img/logo-gva.png" class="logo-anim" style="vertical-align:middle; height:150px; margin-top:100px;">', link: '' },
+        { text: '<img src="img/logo-centro.png" class="logo-anim" style="vertical-align:middle; height:150px;">', link: '' }
         ]
       },/*
       { text: '📚 Continguts addicionals', items: [

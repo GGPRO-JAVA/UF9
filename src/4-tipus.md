@@ -2,7 +2,7 @@
 
 La classe Exception hereta de Throwable, i alhora, totes las excepcions hereten de Exception.
 
-![Jerarquia excepcions](uf9/Jerarquia_excepcions.jpg)
+![Jerarquia excepcions](/uf9/Jerarquia_excepcions.jpg)
 
 Com java.lang és importat de forma implícita en tots els programes, la major part de les excepcions derivades de RuntimeException estan disponibles de manera automàtica. A més no és necessari incloure-les en cap capçalera de mètode mitjançant throws.
 
