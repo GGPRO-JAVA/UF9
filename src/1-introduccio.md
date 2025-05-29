@@ -1,4 +1,4 @@
-# 1. Introducció2
+# 1. Introducció
 
 **Una excepció és un error semàntic que es produeix en temps d'execució**. Encara que un codi siga correcte sintàcticament (és codi Java vàlid i pot compilar-se), és possible que durant la seua execució es produïsquen errors inesperats, com per exemple:
 
