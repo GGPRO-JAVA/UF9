@@ -20,6 +20,12 @@ Els programes escrits en Java també poden llançar excepcions explícitament mi
 
 Com a primera trobada amb les excepcions, executarem el següent programa. En ell forçarem una excepció en intentar dividir un número entre 0:
 
+:::: tabs
+=== Java
+
+::: tabs
+== Codi
+
 ```java
 public class Exemple1_excepcions{
     public static void main(String args[]){
@@ -33,15 +39,25 @@ public class Exemple1_excepcions{
     }
 }
 ```
-Sent l'eixida:
+
+== Eixida
 
 ![Eixida exemple 1](/uf9/Eixida_exemple1.jpg)
 
-El que ha ocorregut és que la màquina virtual Java (el programa que executa codi Java) ha detectat una condició d'error, la divisió per 0, i ha creat un objecte de la classe <i>java.lang.ArithmeticException</i>. Com el mètode on s'ha produït l'excepció no és capaç de tractar-la, la màquina virtual Java finalitza el programa en la línia on realitza la divisió i mostra un missatge d'error amb la informació sobre l'excepció que s'ha produït.
+:::
+::::
+
+El que ha ocorregut és que la màquina virtual Java (el programa que executa codi Java) ha detectat una condició d'error, la divisió per 0, i ha creat un objecte de la classe *java.lang.ArithmeticException*. Com el mètode on s'ha produït l'excepció no és capaç de tractar-la, la màquina virtual Java finalitza el programa en la línia on realitza la divisió i mostra un missatge d'error amb la informació sobre l'excepció que s'ha produït.
 
 ## 1.2. Exemple 2
 
 A continuació forçarem una excepció de conversió, per a això intentarem passar a enter una cadena que no sols porta caràcters numèrics:
+
+:::: tabs
+=== Java
+
+::: tabs
+== Codi
 
 ```java
 public class Exemple2_excepcions{
@@ -56,16 +72,25 @@ public class Exemple2_excepcions{
 }
 ```
 
-Sent l'eixida:
+== Eixida
 
 ![Eixida exemple 2](/uf9/Eixida_exemple2.jpg)
 
-Pel fet que la cadena no té el format adequat ("56s" no representa un número vàlid), el mètode Integer.parseInt(…) no pot convertir-la a un valor de tipus int i llança l'excepció <i>NumberFormatException</i>. La màquina virtual Java finalitza el programa en la línia on s'usa el parseInt() i mostra per pantalla la informació sobre l'excepció que s'ha produït.
+:::
+::::
+
+Pel fet que la cadena no té el format adequat ("56s" no representa un número vàlid), el mètode Integer.parseInt(…) no pot convertir-la a un valor de tipus int i llança l'excepció *NumberFormatException*. La màquina virtual Java finalitza el programa en la línia on s'usa el parseInt() i mostra per pantalla la informació sobre l'excepció que s'ha produït.
 
 ## 1.3. Exemple 3
 
 En aquest exemple forçarem una excepció de límits del vector, per a això crearem un vector i
 intentar accedir a una posició que no existeix:
+
+:::: tabs
+=== Java
+
+::: tabs
+== Codi
 
 ```java
 public class Exemple3_excepcions{
@@ -80,8 +105,11 @@ public class Exemple3_excepcions{
 }
 ```
 
-Sent l'eixida:
+== Eixida
 
 ![Eixida exemple 3](/uf9/Eixida_exemple3.jpg)
 
-En intentar accedir a una posició que sobrepassa la grandària del vector es produeix una excepció de tipus <i>ArrayIndexOutOfBoundsException</i>. La màquina virtual de java finalitza el programa en la línia 18 i mostra el missatge d'error sobre l'excepció que s'ha produït.
+:::
+::::
+
+En intentar accedir a una posició que sobrepassa la grandària del vector es produeix una excepció de tipus *ArrayIndexOutOfBoundsException*. La màquina virtual de java finalitza el programa en la línia 18 i mostra el missatge d'error sobre l'excepció que s'ha produït.

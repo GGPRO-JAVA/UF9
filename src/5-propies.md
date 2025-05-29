@@ -8,6 +8,9 @@ Veurem un exemple senzill de definició i ús d'un nou tipus d'excepció anomena
 
 El main i el mètode que llança l'excepció:
 
+::: tabs
+== Java
+
 ```java
 public class Exemple_excepcions{
   public static void main(String args[]){
@@ -29,7 +32,15 @@ public class Exemple_excepcions{
 }
 ```
 
+:::
+
 La definició de la nova excepció.
+
+:::: tabs
+=== Java
+
+::: tabs
+== Codi
 
 ```java
 public class ExcepcioPropia extends Exception{
@@ -44,7 +55,7 @@ public class ExcepcioPropia extends Exception{
 }
 ```
 
-Sent l'eixida:
+== Eixida
 
 ```plaintext
 Cridat pel mètode(1)
@@ -52,3 +63,6 @@ Finalització normal
 Cridat pel mètode(20)
 Capturada: Excepció pròpia[20]
 ```
+
+:::
+::::

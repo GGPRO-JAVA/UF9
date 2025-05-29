@@ -5,6 +5,9 @@
 
 Programa que calcula la mitjana de dos números enters. S’utilitza una excepció genèrica per controlar tant si s’introdueix un número decimal com si és un alfanumèric.
 
+::: tabs
+== Java
+
 ```java
 package UF09_Exemple01;
 import java.util.Scanner;
@@ -32,6 +35,8 @@ public class UF09_Exemple01 {
 } 
 ```
 
+:::
+
 - Afegeix dos missatges per a mostrar tant el tipus d'excepció com l'error exacte que es produeix fent ús dels mètodes getClass() i getMessage() respectivament sobre l'objecte e. Els missatges es mostraran junts al que ja hi ha quan s’informa de l’excepció.
 - Quines modificacions faries al programa per a evitar haver de crear aquesta excepció?
 
@@ -40,6 +45,9 @@ public class UF09_Exemple01 {
 Programa que demana el número d'asteriscs que es volen pintar i el número de línies en les que han de quedar repartits. Per tant, es pot produir un error si s’introdueix un número decimal o si s’introdueix 0 en el número de línies.
 
 Farem ús de la funció `Math.ceil()` que arrodoneix a enter per damunt (0,35 → 1.0). A títol informatiu `Math.floor()` fa el mateix però a enter inferior (0,35 → 0.0).
+
+::: tabs
+== Java
 
 ```java
 package UF09_Exemple02;
@@ -77,3 +85,5 @@ public class UF09_Exemple02 {
   }
 }
 ```
+
+:::
