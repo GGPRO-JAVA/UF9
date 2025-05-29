@@ -1,10 +1,11 @@
-name: Deploy VitePress to GitHub Pages
+name: Build VitePress Docs
 on:
   push:
     branches:
       - main
 jobs:
-  deploy:
+  build:
+    if: ${{ github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -13,15 +14,18 @@ jobs:
         with:
           node-version: 20
       - name: Install dependencies
-        run: |
-          cd docs
-          npm ci
+        run: npm ci
       - name: Build docs
+        run: npx vitepress build src
+      - name: Add .nojekyll file
+        run: touch docs/.nojekyll
+      - name: Set up authentication for push
         run: |
-          cd docs
-          npm run build
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/.vitepress/dist
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f docs
+          git commit -m "chore: update docs [skip ci]" || echo "No changes to commit"
+          git push
