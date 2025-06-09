@@ -44,10 +44,10 @@ public class UF09_Exemple01 {
 
 Programa que demana el número d'asteriscs que es volen pintar i el número de línies en les que han de quedar repartits. Per tant, es pot produir un error si s’introdueix un número decimal o si s’introdueix 0 en el número de línies.
 
-Farem ús de la funció `Math.ceil()` que arrodoneix a enter per damunt (0,35 → 1.0). A títol informatiu `Math.floor()` fa el mateix però a enter inferior (0,35 → 0.0).
-
 ::: tabs
 == Java
+
+Farem ús de la funció `Math.ceil()` que arrodoneix a enter per damunt (0,35 → 1.0). A títol informatiu `Math.floor()` fa el mateix però a enter inferior (0,35 → 0.0).
 
 ```java
 package UF09_Exemple02;

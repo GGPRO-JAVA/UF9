@@ -2,16 +2,16 @@
 
 ## 3.1. Manejadors d'excepcions
 
-A Java es poden manejar excepcions utilitzant tres mecanismes anomenats **manejadors d'excepcions**. Existeixen tres i funcionen conjuntament:
+El maneig d'excepcions es gestiona amb tres blocs que actuen conjuntament:
 
 - Bloc `try` (intentar): codi que podria llançar una excepció.
-- Bloc `catch` (capturar): codi que manejarà l'excepció si és llançada.
+- Bloc `catch`/`except` (capturar): codi que manejarà l'excepció si és llançada.
 - Bloc `finally` (finalment): codi que s'executa tant si hi ha excepció com si no.
 
 >[!IMPORTANT] <strong>IMPORTANT!:</strong>
->Un **manejador d'excepcions** és un bloc de codi encarregat de tractar les excepcions per a intentar recuperar-se de l’error i **evitar que l'excepció siga llançada descontroladament fins al main i acabe el programa**.
+>Un **gestor d'excepcions** és un fragment de codi dissenyat per interceptar un error en temps d'execució i **impedir que l'excepció es propague** sense control fins al punt d'entrada principal, causant la finalització abrupta del programa.
 
-Sempre que s'utilitze un **try** és obligatori utilitzar almenys un **catch**. El **finally** és opcional.
+Normalment és obligatori tenir almenys un bloc de captura associat al `try`. El bloc `finally` és opcional però útil quan cal assegurar-se que certes instruccions s'executen sempre, independentment de si ha ocorregut una excepció.
 
 ::: tabs
 == Java
@@ -21,7 +21,7 @@ try {
     // Instruccions que podrien llançar una excepció.
 }
 catch (TipusExcepcio nomVariable) {
-    // Instruccions que s'executen quan ‘try’ llança una excepció.
+    // Instruccions que s'executen quan ‘try' llança una excepció.
 }
 finally {
     // Instruccions que s'executen tant si hi ha excepció com si no.
@@ -30,9 +30,9 @@ finally {
 
 :::
 
-**El bloc try intentarà executar el codi**. Si es produeix una excepció s'abandona aquest bloc (no s'executaran les altres instruccions del try) i se saltarà al bloc catch. Lògicament, si en el try no es produeix cap excepció el bloc catch s'ignora.
+**El bloc try intentarà executar el codi**. Si es produeix una excepció, la resta d'instruccions d'aquest bloc s'ometen i es passa directament al primer catch compatible.
 
-**El bloc catch capturarà les excepcions** del tipus <i>TipusExcepcio</i>, evitant que siga llançada al mètode que ens va cridar. Ací haurem d'escriure les instruccions que siguen necessàries per a manejar l'error. Poden especificar-se diversos blocs catch per a diferents tipus d'excepcions.
+**El bloc catch capturarà les excepcions** del tipus <i>TipusExcepcio</i>, evitant que siga llançada al mètode que ens va cridar. Ací haurem d'escriure les instruccions que siguen necessàries per a manejar l'error. Poden especificar-se diversos blocs catch per a diferents tipus d'excepcions. Si el `try` conclou sense errors, tots els blocs `catch` s'ignoren.
 
 **El bloc finally és opcional** i s'executarà tant si s'ha llançat una excepció com si no.
 
@@ -68,11 +68,15 @@ Final del programa.
 ```
 
 :::
+
+En intentar dividir per zero es llança automàticament una *ArithmeticException*. Com això succeeix dins del bloc try, l'execució del programa passa al primer bloc catch perquè coincideix amb el tipus d'excepció produïda (*ArithmeticException*). S'executarà el codi del bloc catch i després el programa continuarà amb normalitat.
+
 ::::
 
-Al intentar dividir per zero es llança automàticament una ArithmeticException. Com això succeeix dins del bloc try, l'execució del programa passa al primer bloc catch perquè coincideix amb el tipus d'excepció produïda (ArithmeticException). S'executarà el codi del bloc catch i després el programa continuarà amb normalitat.
+## 3.3. Particularitats de la clàusula catch (Java)
 
-## 3.3. Particularitats de la clàusula catch
+:::: tabs
+=== Java
 
 És important entendre que **el bloc `catch` sols capturarà excepcions del tipus indicat**. Si es produeix una excepció diferent no la capturarà. No obstant això, **capturarà excepcions heretades del tipus indicat**. Per exemple, `catch (ArithmeticException e)` capturarà qualsevol tipus d'excepció que herete de `ArithmeticException`. El cas més general és `catch (Exception e)` que capturarà tot tipus d'excepcions perquè **a Java totes les excepcions hereten de Exception**.
 
@@ -80,9 +84,11 @@ No obstant això, és millor utilitzar excepcions el més pròximes a la mena d'
 
 **L'objectiu d'una clàusula `catch` és resoldre la condició excepcional perquè el programa puga continuar com si l'error mai haguera ocorregut.**
 
+::::
+
 ## 3.4. Clàusules catch múltiples
 
-Es poden especificar diverses clàusules catch, tantes com vulguem, perquè cadascuna capture un
+Es poden especificar diverses clàusules `catch`, tantes com vulguem, perquè cadascuna capture un
 tipus diferent d'excepció.
 
 ::: tabs
@@ -108,14 +114,14 @@ finally { // opcional
 }
 ```
 
-:::
-
-Quan es llança una excepció dins del `try`, **es comprova cada sentència catch en ordre i s'executa la primera el tipus de la qual coincidisca amb l'excepció llançada**. Els altres blocs catch seran ignorats. Després s'executarà el bloc finally (si s'ha definit) i el programa continuarà la seua execució després del bloc try-catch-finally.
-
 >[!WARNING] <strong>ATENCIÓ!:</strong>
 >Si el tipus excepció produïda no coincideix amb cap dels catch, llavors l'excepció serà llançada al mètode que ens va cridar*.
 
-Vegem un exemple amb clàusules catch múltiples.
+:::
+
+Quan es llança una excepció dins del `try`, **es comprova cada sentència `catch` en ordre i s'executa la primera el tipus de la qual coincidisca amb l'excepció llançada**. Els altres blocs `catch` seran ignorats. Després s'executarà el bloc `finally` (si s'ha definit) i el programa continuarà la seua execució després del bloc `try-catch-finally`.
+
+Vegem un exemple amb clàusules `catch` múltiples.
 
 ## 3.5. Exemple 5
 
@@ -158,43 +164,43 @@ public class Exemple_excepcions{
 
 Poden succeir tres coses diferents:
 
-- El try s'executa sense excepcions, s'ignoren els catch i s’imprimeix “Fin del programa”.
-- Es produeix l'excepció de divisió per zero (línia 29), el flux d'execució salta al 1er catch, s’imprimeix el missatge “Divisió per zero...” i després “Final del programa”.
-- Es produeix l'excepció de sobrepassar el vector, el flux d'execució salta al segon catch, s’imprimeix el missatge “Sobrepassat el tamany del vector:...” i “Final del programa”.
+- El try s'executa sense excepcions, s'ignoren els catch i s'imprimeix "Fin del programa".
+- Es produeix l'excepció de divisió per zero, el flux d'execució salta al 1er catch, s'imprimeix el missatge "Divisió per zero..." i després "Final del programa".
+- Es produeix l'excepció de sobrepassar el vector, el flux d'execució salta al segon catch, s'imprimeix el missatge "Sobrepassat el tamany del vector:..." i "Final del programa".
 
-## 3.6. L'objecte Exception
+## 3.6. L’objecte d’excepció
 
-Tota excepció genera un objecte de la classe Exception (o un més específic que hereta de Exception). Aquest objecte contindrà detalls sobre l’error produït. Pot ser interessant mostrar aquesta informació perquè la veja l’usuari/a (que sàpia què ha succeït) o el desenvolupador/a (per a depurar i corregir el codi si és pertinent). En la clàusula catch tenim accés a l'objecte en cas que vulguem utilitzar-lo:
+En molts llenguatges orientats a objectes, **cada excepció es representa com un objecte** que encapsula informació sobre l’error: el tipus d’excepció, un missatge descriptiu i, sovint, la traça de pila. Aquests objectes permeten:
 
-Els dos mètodes de Exception més útils són:
+- **Informar l’usuari** del que ha passat, mostrant un missatge entenedor.
+- **Facilitar la depuració**, oferint detalls tècnics perquè el desenvolupador localitze l’origen del problema i el corregeixi.
 
-- **`getMessage()`** → Retorna un String amb un text simple sobre l'error.
-- **`printStackTrace()`** → És el que més informació proporciona. Indica quin tipus d'excepció s'ha produït, el missatge simple, i també tota la pila de crides. Això és el que fa Java per defecte quan una excepció no es maneja i acaba parant el programa.
+Quan capturem una excepció, rebem aquest objecte al nostre gestor i podem invocar-ne mètodes per a obtenir informació addicional o imprimir-la.
+
+---
 
 ::: tabs
 == Java
 
-```java
-catch (Exception e){
-  // Mostrem el missatge de l'excepció
-  System.err.println(“Error: ” + e.getMessage());
-  // Anem mostrar tota la informació, missatge i pila de crides
-  e.printStackTrace();
-}
+En Java, un objecte *Exception* (o que derive d'aquesta classe) té accés als següent mètodes:
 
+- **`toString()`**: el tenen precarregat, amb la qual cosa es pot cridar directament.
+- **`getMessage()`**: retorna un text senzill que descriu l’error.
+- **`printStackTrace()`**: imprimeix el tipus d’excepció, el missatge i la traça de crides completa, ajudant a veure exactament on s’ha produït l’error.
+
+```java
+catch (Exception e) {
+    // Mostrem un missatge senzill per a l'usuari
+    System.err.println("Error: " + e.getMessage());
+    // Imprimim la traça completa de la pila per a depuració
+    e.printStackTrace();
+}
 ```
 
-:::
-
-Els objectes de tipus Exception tenen precarregat el mètode toString() pel que també és possible imprimir-los directament mitjançant println().
-
-::: tabs
-== Java
-
 ```java
-catch (Exception e){
-  // Mostrem el missatge de l'excepció
-  System.out.println(e);
+catch (Exception e) {
+    // També podem confiar en toString(), que inclou tipus i missatge
+    System.out.println(e);
 }
 ```
 

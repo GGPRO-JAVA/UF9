@@ -1,20 +1,44 @@
 # 1. Introducció
 
-**Una excepció és un error semàntic que es produeix en temps d'execució**. Encara que un codi siga correcte sintàcticament (és codi Java vàlid i pot compilar-se), és possible que durant la seua execució es produïsquen errors inesperats, com per exemple:
+**Una excepció és un error semàntic que es produeix en temps d'execució**. Encara que un codi siga correcte sintàcticament (és a dir, complix amb les regles del llenguatge i pot ser traduït o compilat), és possible que durant la seua execució es produïsquen situacions imprevistes, com ara:
 
-- Dividir per zero.
-- Intentar accedir a una posició d'un array fora dels seus límits.
-- Al cridar al `nextInt()` d'un `Scanner` l'usuari no introdueix un valor enter.
-- Intentar accedir a un fitxer que no existeix o que està en un disc dur corrupte.
-- Etc.
+- Dividir un nombre per zero.
+- Accedir a una posició inexistent dins d’una col·lecció.
+- Llegir un valor de tipus incorrecte des d’una entrada de dades.
+- Intentar accedir a un recurs extern (com un fitxer) que no existeix o no és accessible.
 
-Quan això ocorre, la màquina virtual Java crea un objecte de la classe **`Exception`** (les excepcions en Java són objectes) i es notifica el fet al sistema d'execució. Es diu que s'ha llançat una excepció ("**Throwing Exception**"). Existeixen també els errors interns que són objectes de la classe **`Error`** que no estudiarem. Totes dues classes `Error` i `Exception` són classes derivades de la classe base **`Throwable`**.
+Quan es produïx un d’estos errors, es pot interrompre el flux normal d'execució del programa. Per evitar-ho, la majoria de llenguatges orientats a objectes disposen de **mecanismes de captura i gestió d’excepcions**. Aquests mecanismes permeten detectar l’error, executar un conjunt d’instruccions de resposta i, si és possible, continuar amb l’execució del programa de forma segura.
 
-Un mètode es diu que és capaç de tractar una excepció ("**Catch Exception**") si ha previst l'error que s'ha produït i les operacions a realitzar per a “recuperar" el programa d'aqueix estat d'error. No és suficient capturar l'excepció, si l'error no es tracta tan sols aconseguirem que el programa no es pare, però l'error pot provocar que les dades o l'execució no siguen correctes.
+Capturar una excepció no significa només evitar que el programa es tanque bruscament, sinó també aplicar alguna lògica per gestionar el problema i restaurar, si cal, un estat vàlid per al programa.
+
+Un mètode es diu capaç de tractar una excepció si inclou una secció de codi que:
+
+- Detecta el tipus d’excepció que pot ocórrer.
+- Especifica com recuperar-se o informar de manera controlada (per exemple, mostrant un missatge d’usuari o fent un retorn alternatiu).
+
+En alguns paradigmes, es distingeix entre **errors** de programa (situacions de fallada greu, no recuperables) i **excepcions** (situacions esperables que cal manejar). Però el mecanisme bàsic és sempre el mateix: la propagació de l’excepció per la pila de crides fins a un punt de tractament o fins a la finalització del programa.
+
+:::: tabs
+=== Java
+
+En Java, **les excepcions són objectes derivats de la classe Throwable**. Hi ha dues branques principals:
+
+- **Exceptions** per a condicions recuperables.
+- **Errors** per a fallades internes del sistema. No estudiarem aquests.
+
+Ambdues classes `Error` i `Exception` són classes derivades de `Throwable`.
+
+Quan en un punt del programa es detecta una condició excepcional, es llança una excepció mitjançant **la instrucció `throw` i es crea un objecte que encapsula**:
+
+- El **tipus d’excepció** (p. ex. ArithmeticException, FileNotFoundException, etc.).
+- Un **missatge** descriptiu (opcional) que ajuda a identificar l’origen o la causa de l’error.
+- La **traça de pila** (*stack trace*), que registra l’ordre de crides de mètodes fins a aquell punt.
+
+Un mètode es diu que és capaç de tractar una excepció (***Catch Exception***) si ha previst l'error que s'ha produït i les operacions a realitzar per a "recuperar" el programa d'aqueix estat d'error. No és suficient capturar l'excepció: si l'error no es tracta tan sols aconseguirem que el programa no es pare, però l'error pot provocar que les dades o l'execució no siguen correctes.
 
 En el moment en què és llançada una excepció, la màquina virtual Java recorre la pila de cridades a mètodes a la recerca d'algun que siga capaç de tractar la classe d'excepció llançada. Per a això, comença examinant el mètode on s'ha produït l'excepció; si aquest mètode no és capaç de tractar-la, examina el mètode des del qual es va realitzar la cridada al mètode on es va produir l'excepció i així successivament fins a arribar a l'últim d'ells. En cas que cap dels mètodes de la pila siga capaç de tractar l'excepció, la màquina virtual Java mostra un missatge d'error i el programa acaba.
 
-Els programes escrits en Java també poden llançar excepcions explícitament mitjançant la instrucció `throw`, la qual cosa facilita la devolució d'un "codi d'error" al mètode que va invocar el mètode que va causar l'error.
+::::
 
 ## 1.1. Exemple 1
 

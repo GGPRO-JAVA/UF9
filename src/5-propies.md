@@ -1,12 +1,10 @@
 # 5. Definir excepcions pròpies
 
-Quan desenvolupem programari, sobretot en desenvolupar les nostres pròpies classes, és habitual que es puguen produir excepcions que no estiguen definides dins del llenguatge Java. Per a crear una excepció pròpia hem de definir una classe derivada de la classe base Exception. L'ús d'aquesta nova excepció és el mateix que hem vist.
+Quan desenvolupem programari, sobretot en desenvolupar les nostres pròpies classes, és habitual que es puguen produir excepcions que no estiguen definides dins del llenguatge. Per a crear una excepció pròpia hem de definir una classe derivada de la classe base *Exception*. L'ús d'aquesta nova excepció és el mateix que hem vist.
 
 ## 5.1. Exemple 6
 
 Veurem un exemple senzill de definició i ús d'un nou tipus d'excepció anomenada ExcepcioPropia que utilitzarem quan a se li passe a ‘mètode’ un valor superior a 10.
-
-El main i el mètode que llança l'excepció:
 
 ::: tabs
 == Java

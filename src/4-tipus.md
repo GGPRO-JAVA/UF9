@@ -1,4 +1,4 @@
-# 4. Jerarquia i tipus d'excepcions
+# 4. Jerarquia i tipus d'excepcions (Java)
 
 La classe Exception hereta de Throwable, i alhora, totes las excepcions hereten de Exception.
 
