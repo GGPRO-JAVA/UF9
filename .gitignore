@@ -14,7 +14,7 @@ dist-ssr
 
 # Build output (local only, not committed)
 docs/
-
+src/.vitepress/cache/
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
