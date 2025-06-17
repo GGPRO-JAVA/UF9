@@ -3,7 +3,7 @@
 
 ## Exemple 1
 
-Programa que calcula la mitjana de dos números enters. S’utilitza una excepció genèrica per controlar tant si s’introdueix un número decimal com si és un alfanumèric.
+Programa que calcula la mitjana de dos números enters. S'utilitza una excepció genèrica per controlar tant si s'introdueix un número decimal com si és un alfanumèric.
 
 ::: tabs
 == Java
@@ -37,12 +37,12 @@ public class UF09_Exemple01 {
 
 :::
 
-- Afegeix dos missatges per a mostrar tant el tipus d'excepció com l'error exacte que es produeix fent ús dels mètodes getClass() i getMessage() respectivament sobre l'objecte e. Els missatges es mostraran junts al que ja hi ha quan s’informa de l’excepció.
+- Afegeix dos missatges per a mostrar tant el tipus d'excepció com l'error exacte que es produeix fent ús dels mètodes getClass() i getMessage() respectivament sobre l'objecte e. Els missatges es mostraran junts al que ja hi ha quan s'informa de l'excepció.
 - Quines modificacions faries al programa per a evitar haver de crear aquesta excepció?
 
 ## Exemple 2
 
-Programa que demana el número d'asteriscs que es volen pintar i el número de línies en les que han de quedar repartits. Per tant, es pot produir un error si s’introdueix un número decimal o si s’introdueix 0 en el número de línies.
+Programa que demana el número d'asteriscs que es volen pintar i el número de línies en les que han de quedar repartits. Per tant, es pot produir un error si s'introdueix un número decimal o si s'introdueix 0 en el número de línies.
 
 ::: tabs
 == Java
