@@ -168,12 +168,12 @@ Poden succeir tres coses diferents:
 - Es produeix l'excepció de divisió per zero, el flux d'execució salta al 1er catch, s'imprimeix el missatge "Divisió per zero..." i després "Final del programa".
 - Es produeix l'excepció de sobrepassar el vector, el flux d'execució salta al segon catch, s'imprimeix el missatge "Sobrepassat el tamany del vector:..." i "Final del programa".
 
-## 3.6. L’objecte d’excepció
+## 3.6. L'objecte d'excepció
 
-En molts llenguatges orientats a objectes, **cada excepció es representa com un objecte** que encapsula informació sobre l’error: el tipus d’excepció, un missatge descriptiu i, sovint, la traça de pila. Aquests objectes permeten:
+En molts llenguatges orientats a objectes, **cada excepció es representa com un objecte** que encapsula informació sobre l'error: el tipus d'excepció, un missatge descriptiu i, sovint, la traça de pila. Aquests objectes permeten:
 
-- **Informar l’usuari** del que ha passat, mostrant un missatge entenedor.
-- **Facilitar la depuració**, oferint detalls tècnics perquè el desenvolupador localitze l’origen del problema i el corregeixi.
+- **Informar l'usuari** del que ha passat, mostrant un missatge entenedor.
+- **Facilitar la depuració**, oferint detalls tècnics perquè el desenvolupador localitze l'origen del problema i el corregeixi.
 
 Quan capturem una excepció, rebem aquest objecte al nostre gestor i podem invocar-ne mètodes per a obtenir informació addicional o imprimir-la.
 
@@ -185,8 +185,8 @@ Quan capturem una excepció, rebem aquest objecte al nostre gestor i podem invoc
 En Java, un objecte *Exception* (o que derive d'aquesta classe) té accés als següent mètodes:
 
 - **`toString()`**: el tenen precarregat, amb la qual cosa es pot cridar directament.
-- **`getMessage()`**: retorna un text senzill que descriu l’error.
-- **`printStackTrace()`**: imprimeix el tipus d’excepció, el missatge i la traça de crides completa, ajudant a veure exactament on s’ha produït l’error.
+- **`getMessage()`**: retorna un text senzill que descriu l'error.
+- **`printStackTrace()`**: imprimeix el tipus d'excepció, el missatge i la traça de crides completa, ajudant a veure exactament on s'ha produït l'error.
 
 ```java
 catch (Exception e) {

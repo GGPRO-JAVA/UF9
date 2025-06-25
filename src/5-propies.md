@@ -4,7 +4,7 @@ Quan desenvolupem programari, sobretot en desenvolupar les nostres pròpies clas
 
 ## 5.1. Exemple 6
 
-Veurem un exemple senzill de definició i ús d'un nou tipus d'excepció anomenada ExcepcioPropia que utilitzarem quan a se li passe a ‘mètode’ un valor superior a 10.
+Veurem un exemple senzill de definició i ús d'un nou tipus d'excepció anomenada ExcepcioPropia que utilitzarem quan a se li passe a ‘mètode' un valor superior a 10.
 
 ::: tabs
 == Java

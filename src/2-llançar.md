@@ -7,7 +7,7 @@ Un programador pot programar el seu codi de manera que es llancen excepcions qua
 També **pot ser apropiat llançar excepcions en els setters** si el valor no és vàlid, **i en qualsevol altre mètode en el qual s'intente fer una cosa no permesa o que viole la integritat de l'objecte**, com per exemple retirar diners d'un compte sense saldo suficient.
 
 ::: warning **ATENCIÓ**
-S’ha de tindre en compte que **les excepcions poden manejar-se i controlar-se sense que el programa es pare** (en l'apartat 3 s'explica com).
+S'ha de tindre en compte que **les excepcions poden manejar-se i controlar-se sense que el programa es pare** (en l'apartat 3 s'explica com).
 
 Es a dir, llançar una excepció no implica necessàriament que el programa acabarà, és simplement una manera d'avisar d'un error. **Qui cride al mètode és responsable de manejar l'excepció perquè el programa no es pare**.
 :::
@@ -53,7 +53,7 @@ En lloc de llançar excepcions pròpies de Java (*ArithmeticException, NumberFor
 :::: tabs
 == Java
 
-**És obligatori indicar en la capçalera del mètode que pot llançar excepcions**. Per a això s’ha d’afegir, a la dreta de la capçalera i abans de les claus, la paraula reservada `throws` seguit de la **mena d'excepció** que pot llançar (si pot llançar diferents tipus d'excepcions deuen indicar-se totes separades per comes).
+**És obligatori indicar en la capçalera del mètode que pot llançar excepcions**. Per a això s'ha d'afegir, a la dreta de la capçalera i abans de les claus, la paraula reservada `throws` seguit de la **mena d'excepció** que pot llançar (si pot llançar diferents tipus d'excepcions deuen indicar-se totes separades per comes).
 
 Per exemple, vegem el mètode *setEdat(int edat)* de la classe *Persona*. Com hem decidit que l'edat d'una persona no pot ser negativa, llançarem una excepció si edat < 0.
 
@@ -115,7 +115,7 @@ Compte: tingueu en compte que *InvalidEdatException* i *InvalidDniException* no 
 
 ::::
 
-## 2.5. Les excepcions es llancen de mètode a mètode (“hot potato”)
+## 2.5. Les excepcions es llancen de mètode a mètode ("hot potato")
 
 Observeu que el llançament d'excepcions es produeix recursivament a través de la seqüència de crides a mètodes. Imaginem que en el mètode A cridem al mètode B, que crida al mètode C, etc. fins a arribar a E.
 
